@@ -1,0 +1,30 @@
+# Ignore all VSCode-specific files and directories
+.vscode/
+
+# Ignore object files, binaries, and build outputs
+*.o
+*.a
+*.out
+*.exe
+*.obj
+*.dll
+*.lib
+*.so
+*.dylib
+
+# Ignore debug and release directories
+Debug/
+debug/
+Release/
+release/
+build/
+out/
+
+# Ignore executable files
+*.exe
+*.out
+*.app
+*.run
+
+# Ignore dependency files
+*.d
