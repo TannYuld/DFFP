@@ -1,37 +1,40 @@
-#include <stdio.h>
 #include "dynelm.h"
+#include "dynio.h"
+
+#include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
-    char str[1000];
-    printf("Please enter a text: ");
-    scanf("%s", str);
+    //init_input_system();
 
-    dfloat* number = dfloat_init(str);
-    if(number == NULL) return -1;
+    printf("Please enter a boolean: ");
+    byte ans_bool = get_boolean_input();
 
-    printf("Number deciaml size: %i\n", number->decimal_size);
-    printf("Number float size: %i\n", number->floating_size);
-    printf("Number is signed: %i\n", number->is_signed);
+    printf("\nPlease enter a string: ");
+    char* ans_str = get_string_input();
 
-    printf("===Number===\n");
-    for(int i = 0; i < number->decimal_size; i++)
-    {
-        printf("%c", number->decimal_digits[i]);
-    }
-    printf(".");
-    for(int i = 0; i < number->floating_size; i++)
-    {
-        printf("%c", number->floating_digits[i]);
-    }
-    printf("\n");
+    printf("\nPlease enter a char: ");
+    char ans_char = get_char_input();
 
-    char* ff = dfloat_to_str(number);
+    printf("\nPlease enter int: ");
+    dint* ans_int = get_int_input();
 
-    printf("Number texted version is: %s,\n",ff);
+    printf("\nPlease enter float: ");
+    dfloat* ans_float = get_float_input();
 
-    free(ff);
-    free_dfloat(number);
+    printf("\nPlease enter a digit (0-9): ");
+    byte ans_digit = get_digit_input();
+
+    printf("\n\n\n1. %s\n", (ans_bool > 0) ? "True" : "False");
+    printf("2. %s\n", ans_str);
+    printf("3. %c\n", ans_char);
+    printf("4. %s\n", dint_to_str(ans_int));
+    printf("5. %s\n", dfloat_to_str(ans_float));
+    printf("6. %i\n", ans_digit);
+
+    free(ans_str);
+    free(ans_int);
+    free(ans_float);
     return 0;
 }
