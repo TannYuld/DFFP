@@ -19,6 +19,8 @@ Release/
 release/
 build/
 out/
+obj/
+bin/
 
 # Ignore executable files
 *.exe
@@ -28,3 +30,6 @@ out/
 
 # Ignore dependency files
 *.d
+
+# Ingore pre-type files
+*.ptyp
